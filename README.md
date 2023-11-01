@@ -43,3 +43,13 @@ django-admin startapp <app-name>
     - 모델의 이름은 기본적으로 단수형태
 
 2. 번역본 생성
+```
+python manage.py makemigrations
+```
+
+3. DB에 반영
+```
+python manage.py migrate
+```
+
+4. 생성한 모델을 admin에 등록
