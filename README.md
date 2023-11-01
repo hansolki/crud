@@ -34,3 +34,12 @@ python manage.py runserver
 django-admin startapp <app-name>
 ```
 9. 앱 등록 => `settings.py`
+
+10. 
+
+
+## Model 
+1. 모델 정의(`models.py`)
+    - 모델의 이름은 기본적으로 단수형태
+
+2. 번역본 생성
