@@ -53,3 +53,28 @@ python manage.py migrate
 ```
 
 4. 생성한 모델을 admin에 등록
+
+5. 관리자 계정 생성
+```
+python manage.py createsuperuser
+```
+
+## CRUD
+> Create, Read, Update, Delete
+
+### 1. Read
+
+- 전체 게시물 출력
+```python
+def index(request):
+    posts = Post.objects.all()
+
+    context = {
+        'posts': posts,
+
+    }
+
+    return render(request, 'index.html', context)
+```
+
+- 하나의 게시물 출력
