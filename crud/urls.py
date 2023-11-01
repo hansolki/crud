@@ -29,4 +29,7 @@ urlpatterns = [
     path('posts/new/', views.new),
     path('posts/create/', views.create),
 
+    # Delete
+    path('posts/<int:id>/delete/', views.delete),
+
 ]
