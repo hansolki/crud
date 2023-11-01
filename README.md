@@ -18,24 +18,35 @@ python -m venv venv
 ```
 
 5. 가상환경 활성화
+    - (venv)가 터미널에 출력되었는지 확인
 ```
 source venv/bin/activate   
 ```
+
 6. 가상환경에 django 설치
 ```
 pip install django
 ```
+
 7. 서버 실행 확인 
 ```
 python manage.py runserver
 ```
+
 8. 앱 생성
 ```
 django-admin startapp <app-name>
 ```
-9. 앱 등록 => `settings.py`
 
-10. 
+9. 앱 등록 => `settings.py`
+```python
+INSTALLED_APPS = [
+    ...
+    '<app-name>',
+]
+```
+
+10. `urls.py` => `views.py` => `templates/*.html` 순서로 코드작성
 
 
 ## Model 
@@ -52,7 +63,14 @@ python manage.py makemigrations
 python manage.py migrate
 ```
 
-4. 생성한 모델을 admin에 등록
+4. 생성한 모델을 admin에 등록(`admin.py`)
+```python
+from django.contrib import admin
+from .models import Post
+# Register your models here.
+
+admin.site.register(Post)
+```
 
 5. 관리자 계정 생성
 ```
@@ -78,3 +96,13 @@ def index(request):
 ```
 
 - 하나의 게시물 출력
+```python
+def detail(request, id):
+    post = Post.objects.get(id=id)
+
+    context = {
+        'post': post,
+    }
+
+    return render(request, 'detail.html', context)
+```
